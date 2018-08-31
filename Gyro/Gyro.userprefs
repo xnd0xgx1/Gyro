@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="Gyro.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\NestadosIA.cs">
+    <Files>
+      <File FileName="Assets\Scripts\AiPet.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Controll Ia.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Gamecontroller.cs" Line="22" Column="20" />
+      <File FileName="Assets\Scripts\NestadosIA.cs" Line="4" Column="12" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
