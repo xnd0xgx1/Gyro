@@ -10,6 +10,13 @@ public class AiPet : ControllIa{
     public GameObject Estados;
     public ParticleSystem ps;
 
+    public bool onsearch = false;
+
+    public int Hambre = 100;
+    public int Vida = 100;
+    public int Bañosl = 100;
+    public int Sueño = 100;
+
 
     private bool playparticle = false;
 
@@ -43,14 +50,14 @@ public class AiPet : ControllIa{
     }
     public void actionhambre()
     {
-        if (actualestate != estado.llamado)
+        if (actualestate.Equals(estado.patrullaje))
         {
             actualestate = estado.hambriento;
         }
     }
     public void call()
     {
-        if (actualestate.Equals(estado.patrullaje))
+        if (actualestate.Equals(estado.patrullaje)||actualestate.Equals(estado.hambriento))
         {
             actualestate = estado.llamado;
         }
@@ -102,9 +109,10 @@ public class AiPet : ControllIa{
 
         yield return new WaitForSeconds(5);
 
-        Estados.GetComponent<NestadosIA>().BarraBaño.value = 100;
+     
         call();
         agent.stoppingDistance = 2;
+        Estados.GetComponent<NestadosIA>().BarraBaño.value = 100;
 
     }
     // Use this for initialization
@@ -185,5 +193,32 @@ public class AiPet : ControllIa{
     {
         agent.destination = Baño.position;
         
+    }
+    protected override void Estadobuscarpelota()
+    {
+        actualestate = estado.Pelota;
+        StopAllCoroutines();
+        onsearch = true;
+        while (onsearch)
+        {
+            try{
+                GameObject pelota = GameObject.FindGameObjectWithTag("Pelota");
+                agent.destination = pelota.transform.position;
+                if (agent.remainingDistance <= agent.stoppingDistance)
+                {
+                    Destroy(pelota);
+                    agent.destination = Camera.main.transform.position;
+                }
+            }
+            catch (System.Exception)
+            {
+                
+            }
+        }
+    }
+
+    public void pelota()
+    {
+        Estadobuscarpelota();
     }
 }

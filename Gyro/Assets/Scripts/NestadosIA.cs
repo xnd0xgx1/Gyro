@@ -25,13 +25,14 @@ public class NestadosIA : MonoBehaviour {
 	
 	void Update ()
     {
+        Pet.GetComponent<AiPet>().Bañosl = (int)BarraBaño.value;
+        Pet.GetComponent<AiPet>().Vida = (int)BarraVida.value;
+        Pet.GetComponent<AiPet>().Sueño = (int)BarraSueño.value;
+        Pet.GetComponent<AiPet>().Hambre = (int)BarraHambre.value;
         //if (BarraSueño.value <= 10)Pet.GetComponent<AiPet>().actiondormir();            
-        if (BarraHambre.value <= 40) { Pet.GetComponent<AiPet>().actionhambre(); } else
-        {
-           // Pet.GetComponent<AiPet>().call() ;
-        }
+        if (BarraHambre.value <= 40) { Pet.GetComponent<AiPet>().actionhambre(); }
        
-        if (BarraHambre.value <= 0)
+        if (BarraHambre.value <= 20)
         {
             
             RestaVida = 2.0f;

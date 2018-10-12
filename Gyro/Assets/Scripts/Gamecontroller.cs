@@ -8,6 +8,7 @@ public class Gamecontroller : MonoBehaviour {
     public GameObject pause;
     public GameObject game;
 
+
     public GameObject pausevr;
     public GameObject gamevr;
 
@@ -19,6 +20,8 @@ public class Gamecontroller : MonoBehaviour {
 
     public GameObject minijuegos;
 
+
+   
 
     public GameObject vr;
     public GameObject ddd;
@@ -36,6 +39,8 @@ public class Gamecontroller : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+       
+
 
     }
     public void Pause() {
@@ -53,6 +58,7 @@ public class Gamecontroller : MonoBehaviour {
         
 
     }
+    
 
    
     public void change(){
