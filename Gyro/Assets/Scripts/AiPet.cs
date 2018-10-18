@@ -10,6 +10,9 @@ public class AiPet : ControllIa{
     public GameObject Estados;
     public ParticleSystem ps;
 
+    public GameObject pelota2;
+
+
     public bool onsearch = false;
 
     public int Hambre = 100;
@@ -41,7 +44,7 @@ public class AiPet : ControllIa{
     {
         if (Estados.GetComponent<NestadosIA>().BarraHambre.value == 100)
         {
-            Estados.GetComponent<NestadosIA>().BarraVida.value += 30;
+            Estados.GetComponent<NestadosIA>().BarraVida.value -= 10;
         }
         else
         {
@@ -50,7 +53,7 @@ public class AiPet : ControllIa{
     }
     public void actionhambre()
     {
-        if (actualestate.Equals(estado.patrullaje))
+        if (actualestate == estado.patrullaje)
         {
             actualestate = estado.hambriento;
         }
@@ -109,9 +112,13 @@ public class AiPet : ControllIa{
 
         yield return new WaitForSeconds(5);
 
-     
-        call();
-        agent.stoppingDistance = 2;
+
+        actualestate = estado.llamado;
+    
+
+    Debug.Log("llamado de bañar");
+        StartCoroutine("llamado");
+    agent.stoppingDistance = 2;
         Estados.GetComponent<NestadosIA>().BarraBaño.value = 100;
 
     }
@@ -125,9 +132,12 @@ public class AiPet : ControllIa{
 	}
     protected void Update()
     {
-        
+
         selector();
-        float dis = Vector3.Distance(this.transform.position,Camera.main.transform.position);
+
+        if (!onsearch)
+        {
+            float dis = Vector3.Distance(this.transform.position, Camera.main.transform.position);
         if (dis <= 2.5)
         {
             gamecontroll.GetComponent<Gamecontroller>().change();
@@ -135,7 +145,9 @@ public class AiPet : ControllIa{
         else
         {
             gamecontroll.GetComponent<Gamecontroller>().rev();
+
         }
+    }
        
     }
 
@@ -194,31 +206,75 @@ public class AiPet : ControllIa{
         agent.destination = Baño.position;
         
     }
-    protected override void Estadobuscarpelota()
+
+    IEnumerator buscarpelota()
     {
-        actualestate = estado.Pelota;
-        StopAllCoroutines();
-        onsearch = true;
+        bool searchingball = true;
+        bool first = false;
         while (onsearch)
         {
-            try{
+            if (GameObject.FindGameObjectWithTag("Pelota")) { 
                 GameObject pelota = GameObject.FindGameObjectWithTag("Pelota");
-                agent.destination = pelota.transform.position;
-                if (agent.remainingDistance <= agent.stoppingDistance)
+                if (!first)
                 {
-                    Destroy(pelota);
+                    Estados.GetComponent<NestadosIA>().BarraVida.value += 30;
+                    first = true;
+                    yield return new WaitForSeconds(1.0f);
+                    
+                }
+
+                agent.destination = pelota.transform.position;
+                agent.stoppingDistance = 0.0f;
+
+
+                actualestate = estado.Pelota;
+                    if (Vector3.Distance(this.transform.position, pelota.transform.position) <= 1.2)
+                    {
+                        Debug.Log("Llego a pelota");
+                        Destroy(pelota);
+                    pelota2.SetActive(true);
+                        agent.destination = Camera.main.transform.position;
+                        searchingball = false;
+                    first = false;
+                    agent.stoppingDistance = 2;
+
+                }
+                
+            }
+           else
+            {
+                if (agent.remainingDistance <= agent.stoppingDistance && searchingball == false)
+                {
+                    pelota2.SetActive(false);
+                    onsearch = false;
+                    StartCoroutine(llamado());
+                    break;
+
+                }
+                else
+                {
                     agent.destination = Camera.main.transform.position;
                 }
             }
-            catch (System.Exception)
-            {
-                
-            }
+            yield return new WaitForSeconds(0.5f);
         }
+    }
+    protected override void Estadobuscarpelota()
+    {
+          
+       
+        onsearch = true;
+        StopAllCoroutines();
+        StartCoroutine(buscarpelota());
     }
 
     public void pelota()
     {
-        Estadobuscarpelota();
+
+        if (Estados.GetComponent<NestadosIA>().BarraHambre.value >=10)
+        {
+
+            Estadobuscarpelota();
+        }
     }
 }

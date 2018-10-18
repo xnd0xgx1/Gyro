@@ -14,11 +14,13 @@ public class Gamecontroller : MonoBehaviour {
 
     public GameObject options;
     public GameObject call;
+   // public GameObject Lanzamiento;
 
     public GameObject callvr;
     public GameObject optionsvr;
 
     public GameObject minijuegos;
+    
 
 
    
@@ -59,6 +61,24 @@ public class Gamecontroller : MonoBehaviour {
 
     }
     
+    public void ocultarbtn()
+    {
+        if (xr == false)
+        {
+
+            callvr.SetActive(false);
+            optionsvr.SetActive(false);
+            
+
+        }
+        else
+        {
+            
+          //  Lanzamiento.SetActive(true);
+            call.SetActive(false);
+            options.SetActive(false);
+        }
+    }
 
    
     public void change(){

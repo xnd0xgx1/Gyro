@@ -181,6 +181,7 @@
     <Compile Include="Assets\Scripts\Camera2.cs" />
     <Compile Include="Assets\Scripts\Controll Ia.cs" />
     <Compile Include="Assets\Scripts\ControllerJoy.cs" />
+    <Compile Include="Assets\Scripts\Fuerzadedisparo.cs" />
     <Compile Include="Assets\Scripts\Gamecontroller.cs" />
     <Compile Include="Assets\Scripts\Gyro.cs" />
     <Compile Include="Assets\Scripts\Loadingcontroller.cs" />

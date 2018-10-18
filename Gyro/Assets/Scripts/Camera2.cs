@@ -7,6 +7,7 @@ public class Camera2 : MonoBehaviour {
 	private float initialYAngle = 0f;
 	private float appliedGyroYAngle = 0f;
 	private float calibrationYAngle = 0f;
+    
 	public Text txt;
     [SerializeField]
     private bool inShoot = false;
@@ -16,6 +17,15 @@ public class Camera2 : MonoBehaviour {
     [SerializeField]
     private GameObject sphere;
 
+    private bool shooted = false;
+
+    public GameObject joystick;
+
+    public GameObject gamecntrl;
+
+    public GameObject disparo;
+
+    private AiPet scrpai;
     void Start()
 	{
 
@@ -29,18 +39,35 @@ public class Camera2 : MonoBehaviour {
 
 	void Update()
 	{
-      
+       
         ApplyGyroRotation();
         ApplyCalibration();
 	}
+    public void tiro()
+    {
+        shooted = true;
+    }
 
     public void minijuego()
     {
-        AiPet scrpai = sphere.GetComponent<AiPet>();
-        if (!scrpai.onsearch)
+
+        Debug.Log("callbtn desactivado");
+        gamecntrl.GetComponent<Gamecontroller>().ocultarbtn();
+        joystick.SetActive(false);
+
+        disparo.SetActive(true);
+        disparo.GetComponent<Fuerzadedisparo>().start();
+
+        scrpai = sphere.GetComponent<AiPet>();
+        if (!scrpai.onsearch && !inShoot)
         {
             inShoot = true;
             scrpai.pelota();
+
+        }
+        else
+        {
+            Debug.Log("Has been shoot");
         }
     }
 
@@ -70,9 +97,19 @@ public class Camera2 : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log(transform.localRotation);
-                Instantiate(pelota, transform.position, transform.localRotation);
-                inShoot = false;
+
+                
+
+                shooted = false;
+                disparo.GetComponent<Fuerzadedisparo>().stop();
+                Instantiate(pelota, transform.position, Quaternion.identity);
+                  
+
+                    
+                    inShoot = false;
+                    joystick.SetActive(true);
+
+                
             }
         }// Save the angle around y axis for use in calibration.
     }

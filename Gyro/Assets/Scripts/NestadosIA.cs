@@ -30,16 +30,16 @@ public class NestadosIA : MonoBehaviour {
         Pet.GetComponent<AiPet>().Sueño = (int)BarraSueño.value;
         Pet.GetComponent<AiPet>().Hambre = (int)BarraHambre.value;
         //if (BarraSueño.value <= 10)Pet.GetComponent<AiPet>().actiondormir();            
-        if (BarraHambre.value <= 40) { Pet.GetComponent<AiPet>().actionhambre(); }
+        if (BarraHambre.value <= 30) { Pet.GetComponent<AiPet>().actionhambre(); }
        
-        if (BarraHambre.value <= 20)
+        if (BarraHambre.value <= 20 || BarraSueño.value <= 10 || BarraBaño.value <= 10)
         {
             
             RestaVida = 2.0f;
         }
         else
         {
-            RestaVida = 0;
+            RestaVida = 0.5f;
         }
 	}
 
