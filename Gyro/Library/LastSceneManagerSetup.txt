@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scene1/MundoGyro.unity
+- path: Assets/Juego de recoleccion/Assets/Scenes/MinijuegoLago.unity
   isLoaded: 1
   isActive: 1
