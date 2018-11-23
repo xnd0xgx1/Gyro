@@ -172,6 +172,9 @@
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrUIHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Utilities\GvrVRHelpers.cs" />
     <Compile Include="Assets\GoogleVR\Scripts\Video\GvrVideoPlayerTexture.cs" />
+    <Compile Include="Assets\Juego de recoleccion\Assets\Scripts\Basura.cs" />
+    <Compile Include="Assets\Juego de recoleccion\Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\Juego de recoleccion\Assets\Scripts\Gancho.cs" />
     <Compile Include="Assets\PIZARRA\Scipts\GameController.cs" />
     <Compile Include="Assets\PIZARRA\Scipts\Mover.cs" />
     <Compile Include="Assets\PIZARRA\Scipts\SceneController.cs" />

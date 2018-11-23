@@ -8,6 +8,11 @@ public class Gamecontroller : MonoBehaviour {
     public GameObject pause;
     public GameObject game;
 
+    public GameObject submenu;
+    public GameObject Menuhistoria;
+    public GameObject Menuecologia;
+    public GameObject Menugeografia;
+
 
     public GameObject pausevr;
     public GameObject gamevr;
@@ -80,6 +85,9 @@ public class Gamecontroller : MonoBehaviour {
         }
     }
 
+
+
+
    
     public void change(){
         if (xr == false)
@@ -140,6 +148,12 @@ public class Gamecontroller : MonoBehaviour {
         SceneManager.LoadScene(3);
     }
 
+    public void Changerecoleccion()
+    {
+        PlayerPrefs.SetInt("load", 6);
+        SceneManager.LoadScene(3);
+    }
+
     public void Changesceneclima()
     {
         PlayerPrefs.SetInt("load", 5);
@@ -167,12 +181,44 @@ public class Gamecontroller : MonoBehaviour {
         
     }
 
+
+
+
     public void minijuego()
     {
         
             minijuegos.SetActive(true);
             pause.SetActive(false);
         
+    }
+
+    public void showmenuecologia()
+    {
+        Menuhistoria.SetActive(false);
+        submenu.SetActive(false);
+        Menuecologia.SetActive(true);
+        Menugeografia.SetActive(false);
+    }
+    public void showmenugeografia()
+    {
+        Menuhistoria.SetActive(false);
+        submenu.SetActive(false);
+        Menuecologia.SetActive(false);
+        Menugeografia.SetActive(true);
+    }
+    public void showmenuhistoria()
+    {
+        Menuhistoria.SetActive(true);
+        submenu.SetActive(false);
+        Menuecologia.SetActive(false);
+        Menugeografia.SetActive(false);
+    }
+    public void backsubmenu()
+    {
+        Menuhistoria.SetActive(false);
+        submenu.SetActive(true);
+        Menuecologia.SetActive(false);
+        Menugeografia.SetActive(false);
     }
 
     public void back()

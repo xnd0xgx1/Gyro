@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scene1/Menu.unity
     guid: 674667e1dbdf5ea4d9a2642f345d3110
   - enabled: 1
-    path: Assets/Scene1/Scene1.unity
+    path: Assets/Scene1/MundoGyro.unity
     guid: 60f075b8ccfaec44980eef20d39a43d3
   - enabled: 1
     path: Assets/PIZARRA/Scenes/pizzarra.unity
@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Aldair/assets/scenes/play.unity
     guid: 2bd72b67e316eee49afe299f03cc18f5
+  - enabled: 1
+    path: Assets/Juego de recoleccion/Assets/Scenes/MinijuegoLago.unity
+    guid: 1431372f74b0a0d4b8d80d9c06497734
   m_configObjects: {}
