@@ -69,6 +69,9 @@
     <Compile Include="Assets\Archivos Steven\RefranAleatorio.cs" />
     <Compile Include="Assets\Archivos Steven\Refranes.cs" />
     <Compile Include="Assets\Archivos Steven\VolumeSlider.cs" />
+    <Compile Include="Assets\Esteban\quizGame\Scripts\AnwerManager.cs" />
+    <Compile Include="Assets\Esteban\quizGame\Scripts\BD_Personaje.cs" />
+    <Compile Include="Assets\Esteban\quizGame\Scripts\bttnFunc.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoInputManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\DemoSceneManager.cs" />
     <Compile Include="Assets\GoogleVR\Demos\Scripts\HelloVR\HeadsetDemoManager.cs" />

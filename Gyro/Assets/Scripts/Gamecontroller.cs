@@ -142,6 +142,12 @@ public class Gamecontroller : MonoBehaviour {
         SceneManager.LoadScene(3);
     }
 
+    public void Changescenep()
+    {
+        PlayerPrefs.SetInt("load", 7);
+        SceneManager.LoadScene(3);
+    }
+
     public void Changescene()
     {
         PlayerPrefs.SetInt("load", 2);

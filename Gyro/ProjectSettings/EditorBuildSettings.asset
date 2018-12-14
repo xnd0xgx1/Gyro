@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Juego de recoleccion/Assets/Scenes/MinijuegoLago.unity
     guid: 1431372f74b0a0d4b8d80d9c06497734
+  - enabled: 1
+    path: Assets/Esteban/quizGame/Scene/Quiz.unity
+    guid: 20bf21e943479ed40ad867bc7b9804cb
   m_configObjects: {}
