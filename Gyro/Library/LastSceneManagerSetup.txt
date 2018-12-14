@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/quizGame/Scene/Quiz.unity
+- path: Assets/Scene1/MundoGyro.unity
   isLoaded: 1
   isActive: 1
